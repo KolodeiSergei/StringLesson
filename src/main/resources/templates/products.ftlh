@@ -27,12 +27,15 @@
 <h3>
     Create new product
 </h3>
-<form action="/product/create" method="post">
+<form action="/product/create" method="post" enctype="multipart/form-data">
     Name of product: <input type="text" name="title"/><br><br>
     Description of product: <input type="text" name="description"/><br><br>
     Price of product: <input type="number" name="price"/><br><br>
     City of product: <input type="text" name="city"/><br><br>
     Author of product: <input type="text" name="author"/><br><br>
+    First photo: <input type="file" name="file1"/><br><br>
+    Second photo: <input type="file" name="file2"/><br><br>
+    Third photo: <input type="file" name="file3"/><br><br>
     <input type="submit" value="add product">
 </form>
 </body>
