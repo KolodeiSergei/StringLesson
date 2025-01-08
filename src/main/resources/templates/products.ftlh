@@ -8,6 +8,12 @@
 <body>
 <h1>BUYSELL</h1><hr>
 <h4>All products</h4>
+<form action="/" method="get">
+    Search for name:<label>
+        <input type="text" name="title">
+    </label><br>
+    <input type="submit" value="Search">
+</form>
 <#list products as product>
     <div>
         <p><b>
