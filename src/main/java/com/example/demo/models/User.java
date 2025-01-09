@@ -7,9 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -18,30 +16,36 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
-    @Column(name = "email", unique = true, nullable = false)
+    private Long id;
+    @Column(name = "email", unique = true)
     private String email;
-    @Column(name = "password",length = 1000)
-    private String password;
-    @Column(name = "phone")
-    private String phone;
+    @Column(name = "phone_number")
+    private String phoneNumber;
     @Column(name = "name")
     private String name;
     @Column(name = "active")
     private boolean active;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "image id")
+    @JoinColumn(name = "image_id")
     private Image avatar;
+    @Column(name = "password", length = 1000)
+    private String password;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "users_role", joinColumns = @JoinColumn(name = "user_id"))
+    @CollectionTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
-    private LocalDateTime dateCreated;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Product> products = new ArrayList<>();
+    private LocalDateTime dateOfCreated;
+
 
     @PrePersist
     private void init() {
-        dateCreated = LocalDateTime.now();
+        dateOfCreated = LocalDateTime.now();
     }
+
+    // security
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

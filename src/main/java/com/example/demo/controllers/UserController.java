@@ -22,16 +22,19 @@ public class UserController {
     public String registration() {
         return "registration";
     }
-@PostMapping("/registration")
+
+
+    @PostMapping("/registration")
     public String createUser(User user, Model model) {
-        if (!userService.createUser(user)){
-            model.addAttribute("error", "User could not be created");
+        if (!userService.createUser(user)) {
+            model.addAttribute("errorMessage", "User with email: " + user.getEmail() + " been created");
             return "registration";
         }
         return "redirect:/login";
     }
-@GetMapping("/hello")
-    public String securityUrl(){
+
+    @GetMapping("/hello")
+    public String securityUrl() {
         return "hello";
     }
 }
