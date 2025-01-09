@@ -42,7 +42,7 @@ public class ProductService {
         }
         log.info("Saving product: Title: {}; Author: {}", product.getTitle(), product.getAuthor());
         Product savedProduct = productRepository.save(product);
-        savedProduct.setPreviewImageId(savedProduct.getImages().getFirst().getId());
+        savedProduct.setPreviewImageId(savedProduct.getImages().get(0).getId());
         productRepository.save(product);
     }
 
