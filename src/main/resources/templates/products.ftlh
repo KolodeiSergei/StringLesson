@@ -9,17 +9,20 @@
 <h1>BUYSELL </h1>
 <hr>
 <#if user.email??>
-<h3>
-    Username: <i>${user.name}</i>
-</h3>
-<form action="/logout" method="post">
-    <input type="hidden" name="_csrf" value="${_csrf.token}">
-    <input type="submit" name="Logout">
-</form>
+    <h3>
+        Username: <i>${user.name}</i>
+    </h3>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <input type="submit" value="Logout">
+    </form>
+    <#if user.isAdmin()>
+        <a href="/admin" > Administration panel</a>
+        </#if>
 <#else >
-<a href="/login">
-    Login
-</a>
+    <a href="/login">
+        Login
+    </a>
 </#if>
 <hr>
 <h4>All products</h4>

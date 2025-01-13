@@ -44,6 +44,9 @@ public class User implements UserDetails {
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
 
     // security
 
