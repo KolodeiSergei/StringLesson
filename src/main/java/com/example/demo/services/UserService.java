@@ -31,6 +31,7 @@ public class UserService {
         userRepository.save(user);
         return true;
     }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -41,7 +42,7 @@ public class UserService {
             if (user.isActive()) {
                 user.setActive(false);
                 log.info("Banning user with id: {}; email: {}", userId, user.getEmail());
-            }else {
+            } else {
                 user.setActive(true);
                 log.info("Unbanning user with id: {}; email: {}", userId, user.getEmail());
             }

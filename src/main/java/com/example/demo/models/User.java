@@ -1,7 +1,9 @@
 package com.example.demo.models;
 
 import com.example.demo.models.enums.Role;
+
 import javax.persistence.*;
+
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,6 +46,7 @@ public class User implements UserDetails {
     private void init() {
         dateOfCreated = LocalDateTime.now();
     }
+
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
     }

@@ -6,7 +6,8 @@
     </title>
 </head>
 <body>
-<h1>BUYSELL</h1><hr>
+<h1>BUYSELL</h1>
+<hr>
 <h3>User info ${user.name}</h3>
 <b> Name:</b>${user.name}<br>
 <b> Phonenumber:</b>${user.phoneNumber}<br>
@@ -22,7 +23,7 @@
             ${product.price}| <a href="/product/${product.id}">More info</a>
         </p>
     </div>
-    <#else >
+<#else >
     <h3>
         Not found products
     </h3>

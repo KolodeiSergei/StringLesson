@@ -26,16 +26,18 @@
             <th>${user.phoneNumber}</th>
             <th><#if user.active> true <#else> false</#if></th>
             <th><#list user.roles as role> ${role}</#list> </th>
-            <th><form action="/admin/user/ban/${user.id}" method="post">
+            <th>
+                <form action="/admin/user/ban/${user.id}" method="post">
                     <input type="hidden" name="_csrf" value="${_csrf.token}">
                     <input type="submit" value="Ban">
-                </form> </th>
+                </form>
+            </th>
             <th>
                 <a href="/admin/user/edit/${user.id}"> Edit </a>
             </th>
             <th><a href="/user/${user.id}"> More information</a></th>
         </tr>
-        <#else >
+    <#else >
         <h3>Users not found</h3>
     </#list>
 </table>

@@ -4,7 +4,8 @@
     <title>BUYSELL</title>
 </head>
 <body>
-<h1>BUYSELL</h1><hr>
+<h1>BUYSELL</h1>
+<hr>
 <h4>Registration</h4>
 <form action="/registration" method="post">
     Username: <input type="text" name="name"><br><br>

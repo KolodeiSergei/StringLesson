@@ -17,8 +17,8 @@
         <input type="submit" value="Logout">
     </form>
     <#if user.isAdmin()>
-        <a href="/admin" > Administration panel</a>
-        </#if>
+        <a href="/admin"> Administration panel</a>
+    </#if>
 <#else >
     <a href="/login">
         Login
